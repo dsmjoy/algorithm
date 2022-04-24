@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zigzagConversion</title>
+</head>
+
+<body>
+  <script>
+    var convert = function (s, numRows) {
+
+      const sLen = s.length;
+
+      if (numRows === 1 || sLen < 3 || numRows >= sLen) {
+        return s;
+      }
+
+      const res = [];
+
+      let n = 0;
+
+      const count = numRows - 2 + numRows;
+
+      for (let i = 0; i < sLen; i++) {
+        const fakeI = i - n * count;
+
+        let index = 0;
+        if (fakeI < numRows) {
+          index = fakeI % numRows;
+        } else {
+          index = numRows - (fakeI % numRows + 1) - 1;
+        }
+
+        if (!res[index]) {
+          res[index] = [];
+        }
+        res[index].push(s[i]);
+
+        if (fakeI === count - 1) {
+          n++;
+        }
+      }
+
+      return res.map(e => e.join('')).join('');
+    };
+
+    const res = convert("PAYPALISHIRING", 5);
+    const ans = "PHASIYIRPLIGAN";
+    console.log("PAYPALISHIRING", res, ans, res === ans);
+  </script>
+</body>
+
+</html>

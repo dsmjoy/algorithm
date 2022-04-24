@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mergeSort</title>
+  <script src="./merge2.js"></script>
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <script>
+    const input = Array(2000).fill(0).map(e => Math.round(Math.random() * 100000))
+
+    const input1 = [...input];
+    console.time('duration');
+    console.log('input:', input, 'output:', mergeSort(input1));
+    console.timeEnd('duration');
+
+    const input2 = [...input];
+    console.time('duration1');
+    console.log('input:', input, 'output:', input2.sort((prev, next) => prev - next));
+    console.timeEnd('duration1');
+  </script>
+</body>
+
+</html>
