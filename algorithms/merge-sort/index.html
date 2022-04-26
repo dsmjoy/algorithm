@@ -15,14 +15,14 @@
     const input = Array(2000).fill(0).map(e => Math.round(Math.random() * 100000))
 
     const input1 = [...input];
-    console.time('duration');
+    console.time('cost');
     console.log('input:', input, 'output:', mergeSort(input1));
-    console.timeEnd('duration');
+    console.timeEnd('cost');
 
     const input2 = [...input];
-    console.time('duration1');
+    console.time('cost1');
     console.log('input:', input, 'output:', input2.sort((prev, next) => prev - next));
-    console.timeEnd('duration1');
+    console.timeEnd('cost1');
   </script>
 </body>
 
