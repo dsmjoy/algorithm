@@ -22,17 +22,9 @@ var uniquePaths = function (m, n) {
       dfs(x + 1, y);
     }
 
-    // if (x - 1 >= 0 && !inMap(x - 1, y)) {
-    //   dfs(x - 1, y);
-    // }
-
     if (y + 1 < m && !inMap(x, y + 1)) {
       dfs(x, y + 1);
     }
-
-    // if (y - 1 >= 0 && !inMap(x, y - 1)) {
-    //   dfs(x, y - 1);
-    // }
 
     map.delete(`${x},${y}`);
   }

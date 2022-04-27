@@ -4,17 +4,21 @@
  * @return {number}
  */
 var uniquePaths = function (m, n) {
-  const f = new Array(m).fill(0).map(() => new Array(n).fill(0));
+  const dp = new Array(n).fill(0).map(() => new Array(m).fill(0));
+
+  for (let i = 0; i < n; i++) {
+    dp[i][0] = 1;
+  }
+
   for (let i = 0; i < m; i++) {
-    f[i][0] = 1;
+    dp[0][i] = 1;
   }
-  for (let j = 0; j < n; j++) {
-    f[0][j] = 1;
-  }
-  for (let i = 1; i < m; i++) {
-    for (let j = 1; j < n; j++) {
-      f[i][j] = f[i - 1][j] + f[i][j - 1];
+
+  for (let i = 1; i < n; i++) {
+    for (let j = 1; j < m; j++) {
+      dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
     }
   }
-  return f[m - 1][n - 1];
+
+  return dp[n - 1][m - 1];
 };
